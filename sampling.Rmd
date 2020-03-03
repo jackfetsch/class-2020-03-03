@@ -6,6 +6,23 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
+
+library(googlesheets4)
+library(tidyverse)
 ```
+
+```{r}
+sheets_deauth()
+
+x <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/14HmwN2cEVAJHupuehCuLdwG9BXtR3COrxDgaaylLhkA/edit#gid=0")
+```
+```{r}
+
+x %>% 
+  arrange(desc(Red)) %>%
+  ggplot(aes(`Percent Red`))
+
+```
+
 
